@@ -1,0 +1,20 @@
+local actions = require("opencode.actions")
+local context = require("opencode.context")
+local helpers = require("tests.helpers")
+
+describe("actions", function()
+    before_each(function()
+        helpers.reset_context()
+        context.new_context()
+    end)
+
+    it("adds full file to context", function()
+        helpers.with_temp_buffer({ "a", "b", "c" }, function()
+            actions.add_file_to_current()
+        end)
+
+        local ctx = context.get_current()
+        assert.equals(1, #ctx.items)
+        assert.equals("file", ctx.items[1].type)
+    end)
+end)

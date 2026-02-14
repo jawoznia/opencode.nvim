@@ -1,0 +1,11 @@
+opencode.nvim
+
+OpenCode staging plugin for Neovim.
+
+COMMANDS ~
+
+:OpenCodeNew
+:OpenCodeAddFile
+:OpenCodeAddVisual
+:OpenCodePrompt
+:OpenCodeSend
