@@ -1,5 +1,7 @@
 # opencode.nvim
 
+NOTE: This plugin is still WIP and not yet tested
+
 AI context staging plugin for Neovim.
 
 ## Features
