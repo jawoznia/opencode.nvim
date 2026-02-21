@@ -14,6 +14,8 @@ RUN pacman -Sy --noconfirm \
   busted \
   ca-certificates \
   lua \
+  lua-language-server \
+  luacheck \
   && pacman -Scc --noconfirm
 
 # --- Install OpenCode ---

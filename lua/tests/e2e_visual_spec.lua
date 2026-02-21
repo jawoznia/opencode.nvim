@@ -14,7 +14,7 @@ describe("e2e visual selection workflow", function()
             vim.api.nvim_buf_set_mark(bufnr, "<", 1, 0, {})
             vim.api.nvim_buf_set_mark(bufnr, ">", 4, 0, {})
 
-            local id = context.new_context()
+            context.new_context()
             actions.add_visual_to_current()
 
             local ctx = context.get_current()
@@ -33,7 +33,7 @@ describe("e2e visual selection workflow", function()
             vim.api.nvim_buf_set_mark(bufnr, "<", 1, 0, {})
             vim.api.nvim_buf_set_mark(bufnr, ">", 3, 0, {})
 
-            local id = context.new_context()
+            context.new_context()
             actions.add_visual_to_current()
 
             local ctx = context.get_current()

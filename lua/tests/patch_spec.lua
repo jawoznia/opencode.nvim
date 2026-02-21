@@ -4,7 +4,6 @@ local helpers = require("tests.helpers")
 describe("patch application", function()
     local mock_notify_calls
     local written_content
-    local cmd_called
 
     before_each(function()
         mock_notify_calls = helpers.mock_notify()
@@ -40,7 +39,7 @@ describe("patch application", function()
     end)
 
     it("shows warning for nil input", function()
-        local ok, err = pcall(function()
+        local ok = pcall(function()
             patch.apply(nil)
         end)
         assert.is_false(ok)
