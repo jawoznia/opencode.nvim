@@ -1,4 +1,5 @@
 local context = require("opencode.context")
+local config = require("opencode.config")
 local M = {}
 
 ---------------------------------------------------------------------
@@ -42,11 +43,33 @@ end
 function M.send(ctx_id, extra_prompt)
     local prompt = M.build_prompt(ctx_id, extra_prompt)
 
-    local cmd = {
-        "opencode",
-        "--json",
-        prompt,
-    }
+    local opencode_path = vim.fn.exepath("opencode")
+    if opencode_path == "" then
+        vim.notify("opencode CLI not found in PATH. Please install it from https://opencode.ai", vim.log.levels.ERROR)
+        return
+    end
+
+    local server_url = config.options.server_url
+    local cmd
+
+    if server_url then
+        cmd = {
+            "opencode",
+            "run",
+            "--attach",
+            server_url,
+            "--format",
+            "json",
+            "--",
+            prompt,
+        }
+    else
+        cmd = {
+            "opencode",
+            "--json",
+            prompt,
+        }
+    end
 
     vim.fn.jobstart(cmd, {
         stdout_buffered = true,

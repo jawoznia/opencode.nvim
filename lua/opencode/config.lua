@@ -3,11 +3,13 @@ local M = {}
 ---@class OpenCodeConfig
 ---@field auto_apply boolean
 ---@field notify boolean
+---@field server_url string|nil
 
 ---@type OpenCodeConfig
 M.options = {
     auto_apply = true,
     notify = true,
+    server_url = nil,
 }
 
 function M.setup(opts)

@@ -44,6 +44,19 @@ lua/tests/
 require("opencode").setup({
     auto_apply = true,  -- auto-apply patches (default: true)
     notify = true,      -- show notifications (default: true)
+    server_url = nil,   -- running server URL (e.g., "http://localhost:4096")
+})
+```
+
+To use a running OpenCode server, start it first:
+```bash
+opencode serve --port 4096
+```
+
+Then configure the plugin:
+```lua
+require("opencode").setup({
+    server_url = "http://localhost:4096",
 })
 ```
 

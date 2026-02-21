@@ -20,3 +20,22 @@ podman-opencode:
         --network=slirp4netns:allow_host_loopback=true \
         opencode-lua-dev \
         opencode
+
+podman-opencode-serve:
+    podman run --rm -it \
+        --name opencode \
+        --read-only \
+        --cap-drop=ALL \
+        --security-opt no-new-privileges \
+        --pids-limit=256 \
+        --memory=2g \
+        --cpus=2 \
+        --tmpfs /root/.local:rw,size=512m \
+        --tmpfs /root/.cache:rw,size=1g \
+        --tmpfs /root/.config:rw,size=64m \
+        -p 127.0.0.1:4096:4096 \
+        -v "$PWD:/workspace:rw,z" \
+        -w /workspace \
+        --network=slirp4netns:allow_host_loopback=true \
+        opencode-lua-dev \
+        opencode serve &
