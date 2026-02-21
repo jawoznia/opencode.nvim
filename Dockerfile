@@ -10,6 +10,8 @@ RUN pacman -Sy --noconfirm \
   neovim \
   ripgrep \
   fd \
+  just \
+  busted \
   ca-certificates \
   lua \
   && pacman -Scc --noconfirm

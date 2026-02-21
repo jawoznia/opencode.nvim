@@ -1,7 +1,12 @@
 {
-    "diagnostics.globals": [
-        "describe",
-        "it",
-        "vim"
-    ]
+  "Lua.runtime.version": "LuaJIT",
+  "Lua.workspace.library": ["/usr/share/lua/5.4"],
+  "Lua.diagnostics.globals": [
+    "describe",
+    "it",
+    "before_each",
+    "after_each",
+    "assert",
+    "vim"
+  ]
 }

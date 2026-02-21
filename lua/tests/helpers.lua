@@ -23,6 +23,17 @@ function M.mock_jobstart(output)
     end
 end
 
+function M.mock_visual_selection(start_line, end_line)
+    vim.fn.getpos = function(pos)
+        if pos == "'<" then
+            return { 0, start_line, 0, 0 }
+        elseif pos == "'>" then
+            return { 0, end_line, 0, 0 }
+        end
+        return { 0, 0, 0, 0 }
+    end
+end
+
 function M.reset_context()
     local ctx = require("opencode.context")
     ctx.store.contexts = {}
