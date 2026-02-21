@@ -101,4 +101,9 @@ Uses plenary.nvim's busted test runner in headless Neovim.
 
 ## Linting/Type Checking
 
-No explicit lint or typecheck commands found. The project uses Lua with lua-language-server for IDE support (see `.luarc.json`).
+Run luacheck to lint Lua files:
+```bash
+luacheck lua/
+```
+
+The project uses Lua with lua-language-server for IDE support (see `.luarc.json`).
