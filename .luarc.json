@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "describe",
-        "it"
+        "it",
+        "vim"
     ]
 }
